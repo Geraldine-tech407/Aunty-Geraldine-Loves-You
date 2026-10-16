@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRE 224 | Computer Devices</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #123c69;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    header h1 {
+      margin-bottom: 5px;
+    }
+
+    nav {
+      background: #0b2545;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav button, .action {
+      border: none;
+      border-radius: 6px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #fbbf24;
+      color: #172554;
+    }
+
+    nav button:hover, .action:hover {
+      background: #fde68a;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 25px auto;
+      padding: 0 16px;
+    }
+
+    .page {
+      display: none;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .device {
+      background: #eff6ff;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .device img {
+      width: 100%;
+      height: 145px;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .device .symbol {
+      font-size: 65px;
+      display: block;
+    }
+
+    .question {
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .question label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .notice {
+      padding: 12px;
+      background: #dbeafe;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    progress {
+      width: 100%;
+      height: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #123c69;
+      color: white;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Computer Input and Output Devices</h1>
+    <p>CRE 224 — Educational Multimedia Interactive Platform</p>
+    <p>Learn • Explore • Practise</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('input')">Input Devices</button>
+    <button onclick="showPage('output')">Output Devices</button>
+    <button onclick="showPage('media')">Audio & Video</button>
+    <button onclick="showPage('quiz')">Take Quiz</button>
+  </nav>
+
+  <main>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <h2>Welcome, Young Learner!</h2>
+
+      <p>
+        Welcome to our interactive computer studies classroom.
+        This platform teaches JSS students about computer input
+        and output devices using lessons, pictures and quizzes.
+      </p>
+
+      <div class="notice">
+        <strong>Learning objectives</strong>
+        <ul>
+          <li>Define input and output devices.</li>
+          <li>Identify common computer devices.</li>
+          <li>Explain the functions of these devices.</li>
+          <li>Answer questions to test your knowledge.</li>
+        </ul>
+      </div>
+
+      <h3>Your learning progress</h3>
+      <progress id="progressBar" value="0" max="3"></progress>
+      <p id="progressText">Lessons visited: 0 of 3</p>
+
+      <button class="action" onclick="showPage('input')">
+        Start Learning →
+      </button>
+    </section>
+
+    <!-- INPUT DEVICES -->
+    <section id="input" class="page">
+      <h2>Lesson 1: Input Devices</h2>
+
+      <p>
+        An input device is a hardware component used to enter
+        data and instructions into a computer.
+      </p>
+
+      <div class="cards">
+        <article class="device">
+          <span class="symbol">⌨️</span>
+          <h3>Keyboard</h3>
+          <p>Used to enter letters, numbers and symbols.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">🖱️</span>
+          <h3>Mouse</h3>
+          <p>Used to point, click, select and move objects.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">🎙️</span>
+          <h3>Microphone</h3>
+          <p>Used to input sound or voice into a computer.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">📷</span>
+          <h3>Webcam</h3>
+          <p>Captures images and video as input.</p>
+        </article>
+      </div>
+
+      <p class="notice">
+        Remember: Input means sending data INTO the computer.
+      </p>
+
+      <button class="action" onclick="showPage('output')">
+        Next: Output Devices →
+      </button>
+    </section>
+
+    <!-- OUTPUT DEVICES -->
+    <section id="output" class="page">
+      <h2>Lesson 2: Output Devices</h2>
+
+      <p>
+        An output device is a hardware component that presents
+        processed information from a computer to the user.
+      </p>
+
+      <div class="cards">
+        <article class="device">
+          <span class="symbol">🖥️</span>
+          <h3>Monitor</h3>
+          <p>Displays text, pictures and videos.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">🖨️</span>
+          <h3>Printer</h3>
+          <p>Produces printed information on paper.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">🔊</span>
+          <h3>Speakers</h3>
+          <p>Produce sound, music and spoken audio.</p>
+        </article>
+
+        <article class="device">
+          <span class="symbol">📽️</span>
+          <h3>Projector</h3>
+          <p>Displays a computer's images on a large screen.</p>
+        </article>
+      </div>
+
+      <p class="notice">
+        Remember: Output means information coming OUT of the computer.
+      </p>
+
+      <button class="action" onclick="showPage('media')">
+        Next: Audio & Video →
+      </button>
+    </section>
+
+    <!-- MULTIMEDIA -->
+    <section id="media" class="page">
+      <h2>Lesson 3: Audio and Video</h2>
+
+      <p>
+        Multimedia combines different forms of information,
+        such as text, images, sound and video, to support learning.
+      </p>
+
+      <h3>Listen to the lesson</h3>
+      <p>Click the button to hear an explanation.</p>
+
+      <button class="action" onclick="speakLesson()">
+        🔊 Play Audio Explanation
+      </button>
+
+      <button class="action" onclick="stopAudio()">
+        Stop Audio
+      </button>
+
+      <h3>Watch a demonstration</h3>
+      <p>
+        You can add your own educational video to this section.
+        First, place an MP4 video inside a folder named
+        <strong>media</strong>, beside this HTML file.
+      </p>
+
+      <video controls>
+        <source src="media/devices.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+
+      <p class="notice">
+        The video will play after you add a compatible video
+        file at media/devices.mp4.
+      </p>
+
+      <button class="action" onclick="showPage('quiz')">
+        Test Your Knowledge →
+      </button>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="page">
+      <h2>Knowledge Check</h2>
+      <p>Choose one answer for each question.</p>
+
+      <form id="quizForm">
+
+        <div class="question">
+          <p>1. Which device is used to enter text?</p>
+          <label><input type="radio" name="q1" value="a"> Monitor</label>
+          <label><input type="radio" name="q1" value="b"> Keyboard</label>
+          <label><input type="radio" name="q1" value="c"> Speaker</label>
+        </div>
+
+        <div class="question">
+          <p>2. Which of these is an output device?</p>
+          <label><input type="radio" name="q2" value="a"> Mouse</label>
+          <label><input type="radio" name="q2" value="b"> Microphone</label>
+          <label><input type="radio" name="q2" value="c"> Monitor</label>
+        </div>
+
+        <div class="question">
+          <p>3. What is the function of a printer?</p>
+          <label><input type="radio" name="q3" value="a"> Print information on paper</label>
+          <label><input type="radio" name="q3" value="b"> Record voice</label>
+          <label><input type="radio" name="q3" value="c"> Move the pointer</label>
+        </div>
+
+        <div class="question">
+          <p>4. Which device captures sound?</p>
+          <label><input type="radio" name="q4" value="a"> Projector</label>
+          <label><input type="radio" name="q4" value="b"> Microphone</label>
+          <label><input type="radio" name="q4" value="c"> Printer</label>
+        </div>
+
+        <button class="action" type="submit">Submit Answers</button>
+      </form>
+
+      <div id="result" class="notice" aria-live="polite">
+        Your score will appear here.
+      </div>
+
+      <button class="action" onclick="resetQuiz()">
+        Try Again
+      </button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>CRE 224 Educational Multimedia Project</p>
+    <p>Designed for Junior Secondary School learners</p>
+  </footer>
+
+  <script>
+    const visited = new Set();
+
+    function showPage(pageId) {
+      document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+      });
+
+      document.getElementById(pageId).classList.add("active");
+
+      if (["input", "output", "media"].includes(pageId)) {
+        visited.add(pageId);
+        updateProgress();
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgress() {
+      const count = visited.size;
+
+      document.getElementById("progressBar").value = count;
+      document.getElementById("progressText").textContent =
+        "Lessons visited: " + count + " of 3";
+    }
+
+    function speakLesson() {
+      if (!("speechSynthesis" in window)) {
+        alert("Audio narration is not supported by this browser.");
+        return;
+      }
+
+      stopAudio();
+
+      const message = new SpeechSynthesisUtterance(
+        "An input device sends data into a computer. " +
+        "Examples include the keyboard, mouse, microphone and webcam. " +
+        "An output device presents information from the computer. " +
+        "Examples include the monitor, printer, speakers and projector."
+      );
+
+      message.lang = "en";
+      window.speechSynthesis.speak(message);
+    }
+
+    function stopAudio() {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    document.getElementById("quizForm").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+
+        const answers = {
+          q1: "b",
+          q2: "c",
+          q3: "a",
+          q4: "b"
+        };
+
+        const form = event.currentTarget;
+        let score = 0;
+        let answered = 0;
+
+        Object.keys(answers).forEach(function(question) {
+          const selected = form.querySelector(
+            'input[name="' + question + '"]:checked'
+          );
+
+          if (selected) {
+            answered++;
+            if (selected.value === answers[question]) {
+              score++;
+            }
+          }
+        });
+
+        const result = document.getElementById("result");
+
+        if (answered < 4) {
+          result.textContent =
+            "Please answer all 4 questions before submitting.";
+          return;
+        }
+
+        const percent = (score / 4) * 100;
+
+        result.textContent =
+          "You scored " + score + " out of 4 (" + percent +
+          "%). " + (score === 4
+            ? "Excellent work!"
+            : "Review the lessons and try again.");
+
+        localStorage.setItem("cre224LastScore", score);
+        localStorage.setItem("cre224LastPercent", percent);
+      }
+    );
+
+    function resetQuiz() {
+      document.getElementById("quizForm").reset();
+      document.getElementById("result").textContent =
+        "Your score will appear here.";
+    }
+
+    // Restore the previous score when the page is reopened.
+    const previousScore = localStorage.getItem("cre224LastScore");
+
+    if (previousScore !== null) {
+      document.getElementById("result").textContent =
+        "Your previous score: " + previousScore + " out of 4.";
+    }
+  </script>
+
+</body>
+</html>
